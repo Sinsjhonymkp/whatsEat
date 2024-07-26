@@ -1,0 +1,69 @@
+@import '../../../variables';
+.main__head{
+    text-align: center;
+    padding-bottom: 50px;
+}
+.main__stock{
+    grid-gap: 40px;
+    display: grid;
+    justify-items: center; 
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, 350px);
+    padding-bottom:40px;
+}
+
+.stock-add {
+    height:270px;
+    cursor: pointer;
+    align-self: center;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid $second-color;
+    border-radius: 25%;
+    transition: 0.3s;
+    width: 250px;
+    &:hover{
+      transform: translateY(-10px);
+      box-shadow: 0 15px 20px rgba(0, 0, 0, 0.62);
+
+    }
+    &:hover .stock-add__pluse{
+        background: #18009f;
+    }
+}
+
+.stock-add__pluse{
+    transition: 0.3s;
+    position: relative;
+    --heightLine: 8px;
+    --scale: 3;
+    border-radius:  50%;
+    background-color: $second-color;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    transition-property: background-color;
+}
+  .stock-add__pluse::before, .stock-add__pluse::after {
+    position: absolute;
+    content: '';
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $text-color;
+    width: calc( var(--scale) * 100% );
+    height: var(--heightLine);
+
+  }
+  
+  .stock-add__pluse::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  

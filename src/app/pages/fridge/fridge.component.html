@@ -1,0 +1,15 @@
+<h2 class="main__head">Холодильник: ваши продукты</h2>
+<div class="main__stock">
+    @if(popupSignal()) {
+    <food-form></food-form>
+    }
+    @for(product of products$ | async; track product.id){
+    <stock [product]="product"></stock>
+    }
+    <div (click)="togglePopup()" class="stock-add">
+        <div class="stock-add__pluse"
+            style="--size: 90px;  --radius: 1; --scale: 0.8; --backgroundColor: black; --colorLine: white; --hoverColorLine: black; --hoverBackgroundColor: rgb(0, 255, 187); --heightLine: 8px">
+        </div>
+    </div>
+</div>
+<h2 class="main__head">Выбранные продукты</h2>

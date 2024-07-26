@@ -1,0 +1,41 @@
+@import '../../../variables';
+:host{
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    width: 100svw;
+    height: 100svh;
+    background: #000000d0;
+    z-index: 100;
+}
+.popup__form{
+    gap: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.close{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+.popup__form-label{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .popup__form-input{
+        width: 400px;
+        background: $first-color;
+        padding: 10px;
+        color: $text-color;
+        height: 40px;
+        background: transparent;
+        border: 3px solid $second-color;
+        font-family: "Yanone Kaffeesatz", sans-serif;
+        font-size: medium;
+    }
+}

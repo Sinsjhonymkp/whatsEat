@@ -1,0 +1,33 @@
+@import './variables.scss';
+
+ *{
+   border: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+ }  
+body{
+   font-size: $text-font;
+   font-family: "Yanone Kaffeesatz", sans-serif;
+        background: $first-color;
+        color: $text-color;
+    }
+    .button{
+      cursor: pointer;
+      font-family: "Yanone Kaffeesatz", sans-serif;
+      font-size: medium;
+      border-radius: 15px;
+      color: $text-color;
+      padding: 20px 10px;
+      background: $second-color;
+    }
+    .link{
+      transition: 0.3s;
+      text-decoration: none;
+      list-style: none;
+      color: $first-color;
+    }
+    .link:hover{
+      color: $second-color;
+    }
+ 

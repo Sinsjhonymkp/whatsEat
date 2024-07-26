@@ -1,0 +1,33 @@
+@import '../../../variables';
+
+.stock-item {
+    cursor: pointer;
+    align-self: center;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid $second-color;
+    border-radius: 25%;
+    transition: 0.3s;
+    width: 250px;
+    &:hover{
+      transform: translateY(-10px);
+      box-shadow: 0 15px 20px rgba(0, 0, 0, 0.62);
+
+    }
+}
+.item__img {
+    padding: 10px;
+    border-radius: 25%;
+    width: 200px;
+    height: 200px;
+}
+.item__name {
+    text-align: center;
+}
+.item__quantity {
+    padding-bottom: 10px;
+    text-align: center;
+}

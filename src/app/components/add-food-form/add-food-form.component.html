@@ -1,0 +1,14 @@
+<button (click)="togglePopup()" class="button close">Закрыть</button>
+
+<h1>Добавление продукта</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="popup__form" action="">
+    <label class="popup__form-label">
+        Название
+        <input formControlName="name" class="popup__form-input" type="text">
+    </label>
+    <label class="popup__form-label">
+        Количество
+        <input formControlName="count" class="popup__form-input" type="text">
+    </label>
+    <button type="submit" class="button">Добавить</button>
+</form>

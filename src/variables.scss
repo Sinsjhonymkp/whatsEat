@@ -1,0 +1,16 @@
+$first-color: #1c1f24;
+$text-color: #fafafa;
+$second-color: #545df9;
+$header-font: calc(10px + 3vw);
+$text-font: calc(10px + 1.5vw);
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

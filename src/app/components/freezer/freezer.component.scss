@@ -1,0 +1,21 @@
+.fridge {
+    width: 500px;
+    height: 500px;
+    border: 2px solid gray;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    transition: 0.3s;
+
+}
+.fridge_active{
+    background: yellow;
+    gap: 450px
+}
+.fridge__door {
+    background: gray;
+    width: 300px;
+}
+.fridge-hover:hover{
+    gap: 50px;
+}

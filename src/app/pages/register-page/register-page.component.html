@@ -1,0 +1,24 @@
+<div class="login">
+    <div class="login__hero">
+        @if(!errorSignal()){
+        <h1 class="login__header">Регистрация</h1>
+        }
+        @else {
+        <h1 style="color: red" class="login__header">Неверные данные</h1>
+        }
+        <svg class="login__hero-icon" icon="logo"></svg>
+    </div>
+    <form [formGroup]="form" class="login__form" (ngSubmit)="onSubmit()">
+        <label for="name">Имя</label>
+        <input formControlName="name" class="login__form-input" name="name" type="text" placeholder="Введите имя">
+        <label for="email">Email</label>
+        <input formControlName="email" class="login__form-input" name="email" type="text" placeholder="Введите логин">
+        <label for="password">Пароль</label>
+        <input formControlName="password" class="login__form-input" name="password" type="password"
+            placeholder="Введите пароль">
+
+        <div class="form__buttons">
+            <button class="button button-item" type="submit">Зарегистрироваться</button>
+        </div>
+    </form>
+</div>
