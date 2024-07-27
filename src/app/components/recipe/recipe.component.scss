@@ -1,0 +1,62 @@
+@import '../../../variables';
+:host{
+    display:grid;
+    grid-template-columns: 300px 600px;
+    grid-gap: 40px;
+}
+.recipe__title{
+   font-size: $small-font;
+}
+.recipe__intro{
+    display: flex;
+    gap: 15px;
+    align-items: start;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.recipe-photo{
+    width: 300px;
+    height: 300px;
+}
+.recipe__description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.recipe__description-info {
+    display: flex;
+    justify-content: space-around;
+    gap: 80px;
+    padding-bottom: 40px;
+}
+.info__type {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .link{
+        text-decoration:underline;
+        &:hover{
+            color: $second-color;
+        }
+    }
+  
+}
+.recipe-text {
+    color: #fafafa;
+    font-size: $small-font;
+    align-items: center;
+}
+.recipe-diges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.diges-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}

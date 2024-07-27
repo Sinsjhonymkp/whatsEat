@@ -20,6 +20,10 @@ body{
       color: $text-color;
       padding: 20px 10px;
       background: $second-color;
+      transition: 0.3s;
+      &:hover{
+        background: $hover-color;
+      }
     }
     .link{
       transition: 0.3s;
@@ -30,4 +34,13 @@ body{
     .link:hover{
       color: $second-color;
     }
- 
+    
+    .pt20{
+      padding-top: 20px;
+    }
+    .pb10{
+      padding-bottom: 10px;
+    }
+    .pb20{
+      padding-bottom: 20px;
+    }

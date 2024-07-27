@@ -1,19 +1,23 @@
 @import '../../../variables';
+:host{
+  text-align: center;
+}
 .main__head{
     text-align: center;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 .main__stock{
-    grid-gap: 40px;
-    display: grid;
-    justify-items: center; 
+    grid-gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center; 
     align-items: center;
-    grid-template-columns: repeat(auto-fit, 350px);
-    padding-bottom:40px;
+    padding:40px 40px;
 }
 
 .stock-add {
-    height:270px;
+  padding: 15px;
     cursor: pointer;
     align-self: center;
     gap: 10px;
@@ -24,7 +28,7 @@
     border: 2px solid $second-color;
     border-radius: 25%;
     transition: 0.3s;
-    width: 250px;
+   
     &:hover{
       transform: translateY(-10px);
       box-shadow: 0 15px 20px rgba(0, 0, 0, 0.62);
@@ -42,8 +46,8 @@
     --scale: 3;
     border-radius:  50%;
     background-color: $second-color;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     overflow: hidden;
     cursor: pointer;
     outline: none;
@@ -58,7 +62,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: $text-color;
-    width: calc( var(--scale) * 100% );
+    width: calc( var(--scale) * 60% );
     height: var(--heightLine);
 
   }
@@ -67,3 +71,24 @@
     transform: translate(-50%, -50%) rotate(90deg);
   }
   
+
+  .main__choose-items{
+    gap: 10px;
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .main__show-button{
+    text-align: center;
+    font-size: $small-font;
+  }
+
+  .main__recipes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+  }

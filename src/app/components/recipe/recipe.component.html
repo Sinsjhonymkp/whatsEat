@@ -1,0 +1,26 @@
+<div class="recipe__intro">
+    <span class="recipe__title">{{recipe.label}}</span>
+    <img class="recipe-photo" [src]="recipe.image" alt="{{recipe.label}}">
+</div>
+<div class="recipe__description">
+    <div class="recipe__description-info">
+        <div class="info__type">
+            <span class="recipe-text">Вид блюда</span>
+            <span class="recipe-text">{{recipe.dishType}}</span>
+        </div>
+        <div class="info__type">
+            <span class="recipe-text">Cсылка:</span>
+            <a target="_blank" class="link recipe-link recipe-text" [href]="recipe.url">{{recipe.source}}</a>
+        </div>
+    </div>
+    <p class=" pb20 recipe-text">Пищевая ценность</p>
+    <div class="recipe-diges">
+        <div class="diges-items">
+            <span class="recipe-text">Всего калорий:</span>
+            <span class="recipe-text">{{recipe.calories}}</span>
+        </div>
+
+
+    </div>
+
+</div>

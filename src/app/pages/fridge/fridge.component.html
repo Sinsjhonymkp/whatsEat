@@ -4,7 +4,7 @@
     <food-form></food-form>
     }
     @for(product of products$ | async; track product.id){
-    <stock [product]="product"></stock>
+    <stock (click)="handleClick(product.name)" [product]="product"></stock>
     }
     <div (click)="togglePopup()" class="stock-add">
         <div class="stock-add__pluse"
@@ -12,4 +12,13 @@
         </div>
     </div>
 </div>
-<h2 class="main__head">Выбранные продукты</h2>
+<h2 class="pb10 pt20 main__head">Выбранные продукты</h2>
+<addingProducts [name]="name"> </addingProducts>
+<button (click)="showRecipes()" class="pt20 main__show-button button">Показать рецепты из выбранных продуктов</button>
+<div class="pt20 main__recipes">
+    @for(recipe of recipies$ | async; track recipe.image){
+
+    <app-recipe [recipe]="recipe"></app-recipe>
+    }
+
+</div>

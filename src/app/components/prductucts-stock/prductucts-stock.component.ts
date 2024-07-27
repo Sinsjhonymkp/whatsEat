@@ -12,7 +12,6 @@ import { IFood } from '../../interfaces/foodInterface';
 export class PrductuctsStockComponent {
 @Input() product!: IFood;
 
-handleClick(name: string) {
-  console.log(name);
-}
+
+
 }
