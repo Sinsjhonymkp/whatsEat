@@ -46,8 +46,8 @@
     --scale: 3;
     border-radius:  50%;
     background-color: $second-color;
-    width: 70px;
-    height: 70px;
+    width: 76px;
+    height: 76px;
     overflow: hidden;
     cursor: pointer;
     outline: none;
@@ -91,4 +91,25 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 40px;
+    padding-bottom: 20px;
   }
+  .stock__items-container{
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  .item__icons{
+    display: flex;
+    ;align-items: center;
+    justify-content: center;
+  }
+  .item__icon{
+    cursor: pointer;
+    transition: 0.3s;
+    width: 22px;
+    height: 22px;
+    fill: red;
+    &:hover{
+        color: rgb(128, 0, 0);
+    }
+}

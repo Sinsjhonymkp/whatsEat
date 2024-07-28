@@ -1,22 +1,13 @@
 @import '../../../variables';
-:host{
-    gap: 10px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    padding: 0 40px;
-    padding-bottom: 35px;
-}
+
 .stock-item {
     padding: 20px;
+    width: 100%;
     cursor: pointer;
     align-self: center;
     gap: 5px;
-    font-size: $small-font;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content:space-around;
     border: 2px solid $second-color;
@@ -35,8 +26,13 @@
     height: 200px;
 }
 .item__name {
+    display: flex;
     text-align: center;
 }
 .item__quantity {
     text-align: center;
+}
+.item__name-remove{
+    color :red;
+    font-size: $micro-font;
 }

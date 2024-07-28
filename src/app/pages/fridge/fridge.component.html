@@ -4,7 +4,12 @@
     <food-form></food-form>
     }
     @for(product of products$ | async; track product.id){
-    <stock (click)="handleClick(product.name)" [product]="product"></stock>
+    <div class="stock__items-container">
+        <stock (click)="addFoodInBasket(product.name)" [product]="product"></stock>
+        <div class="item__icons">
+            <svg (click)="removeFood(product.id)" class="item__icon" icon="remove"></svg>
+        </div>
+    </div>
     }
     <div (click)="togglePopup()" class="stock-add">
         <div class="stock-add__pluse"
@@ -13,7 +18,9 @@
     </div>
 </div>
 <h2 class="pb10 pt20 main__head">Выбранные продукты</h2>
-<addingProducts [name]="name"> </addingProducts>
+<div class="main__stock">
+    <addingProducts *ngFor="let item of name" (click)="removeFoodfromBasket(item)" [item]="item"></addingProducts>
+</div>
 <button (click)="showRecipes()" class="pt20 main__show-button button">Показать рецепты из выбранных продуктов</button>
 <div class="pt20 main__recipes">
     @for(recipe of recipies$ | async; track recipe.image){

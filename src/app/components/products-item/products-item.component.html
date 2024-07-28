@@ -1,3 +1,4 @@
-<div class="stock-item" *ngFor="let item of name">
-    <span class="item__name">{{ item }}</span>
+<div class="stock-item">
+    <span #basketFood class="item__name">{{ item }} </span>
+    <span (click)="findFoodInBasket()" class="item__name-remove">удалить</span>
 </div>

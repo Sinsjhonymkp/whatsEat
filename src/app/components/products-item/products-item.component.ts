@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'addingProducts',
@@ -9,5 +9,13 @@ import { Component, Input } from '@angular/core';
   styleUrl: './products-item.component.scss'
 })
 export class ProductsItemComponent {
-@Input()name!: string[] ;
+@Input()item!: string;
+@ViewChild('basketFood', { static: false }) basketFood!: ElementRef;
+
+findFoodInBasket(): string{
+ return this.basketFood.nativeElement.innerText;
 }
+
+
+}
+

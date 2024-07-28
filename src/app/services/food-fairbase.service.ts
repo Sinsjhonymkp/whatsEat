@@ -21,9 +21,9 @@ export class FoodFairbaseService {
     return collectionData(queryId, {idField : 'id'}) as Observable<IFood[]> 
   }
 
-  addFood(name: string, count: number): Observable<string>{
+  addFood(name: string): Observable<string>{
     const user = this.auth.currentUser;
-    const foodCreate = {name, count, uid: user!.uid}
+    const foodCreate = {name,  uid: user!.uid}
     const promise = addDoc(this.foodCollection, foodCreate)
     .then(
       (response) => response.id

@@ -1,7 +1,7 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component,  ElementRef, inject, signal, ViewChild } from '@angular/core';
 import { PrductuctsStockComponent } from "../../components/prductucts-stock/prductucts-stock.component";
 import { FoodFairbaseService } from '../../services/food-fairbase.service';
-import { map, Observable, tap } from 'rxjs';
+import {  Observable, tap } from 'rxjs';
 import { IFood } from '../../interfaces/foodInterface';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { AddFoodFormComponent } from "../../components/add-food-form/add-food-form.component";
@@ -9,12 +9,13 @@ import { ProductsItemComponent } from "../../components/products-item/products-i
 import { ApiServiceService } from '../../services/api/api-servise.service';
 import { IRecipe } from '../../interfaces/recipeInterface';
 import { RecipeComponent } from "../../components/recipe/recipe.component";
+import { SvgIconComponent } from '../../common-ui/svg-icon/svg-icon.component';
 
 
 @Component({
   selector: 'app-fridge',
   standalone: true,
-  imports: [PrductuctsStockComponent, AsyncPipe, AddFoodFormComponent, ProductsItemComponent, CommonModule, RecipeComponent],
+  imports: [PrductuctsStockComponent, SvgIconComponent, AsyncPipe, AddFoodFormComponent, ProductsItemComponent, CommonModule, RecipeComponent],
   templateUrl: './fridge.component.html',
   styleUrl: './fridge.component.scss'
 })
@@ -23,15 +24,13 @@ export class FridgeComponent {
   private foodService = inject(FoodFairbaseService)
   protected foodSignal: IFood[] = [];
   public popupSignal = signal<boolean>(false);
- 
   protected recipies$!: Observable<IRecipe[]>;
-  
   public name:string[] = [];
-
-
   public products$!: Observable<IFood[]>; // Объявляем Observable
+  productsItem = new ProductsItemComponent();
+  @ViewChild('basketFood', { static: false }) basketFood!: ElementRef;
 
-  handleClick(name: string) {
+  addFoodInBasket(name: string) {
     this.name.push(name);
     console.log(this.name);
   }
@@ -49,12 +48,18 @@ async showRecipes(){
   this.recipies$.subscribe(res => {console.log(res)})
 }
 
+removeFood(id:string){
+  this.foodService.deleteFood(id)
+}
+
 togglePopup() {
   this.popupSignal.set(!this.popupSignal())
 }
 
-trackByRecipe(index: number, recipe: IRecipe): string {
-  return recipe.label; // Или другой уникальный идентификатор
+removeFoodfromBasket(item: string) {
+  this.name = this.name.filter(name => name !== item);
+  console.log(this.name);
 }
+
 
 }
