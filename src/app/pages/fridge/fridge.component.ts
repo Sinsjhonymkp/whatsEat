@@ -1,7 +1,7 @@
 import { Component,  ElementRef, inject, signal, ViewChild } from '@angular/core';
 import { PrductuctsStockComponent } from "../../components/prductucts-stock/prductucts-stock.component";
 import { FoodFairbaseService } from '../../services/food-fairbase.service';
-import {  Observable, tap } from 'rxjs';
+import {  map, Observable, tap } from 'rxjs';
 import { IFood } from '../../interfaces/foodInterface';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { AddFoodFormComponent } from "../../components/add-food-form/add-food-form.component";

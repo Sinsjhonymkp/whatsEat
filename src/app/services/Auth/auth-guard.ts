@@ -13,7 +13,7 @@ export function AuthGuardService() {
       if (user) {
         return true;
       } else {
-       router.navigate(['/'])
+       router.navigate(['/login'])
         return false;
       }
      })
