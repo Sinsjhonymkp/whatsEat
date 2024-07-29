@@ -20,19 +20,21 @@ import { SvgIconComponent } from '../../common-ui/svg-icon/svg-icon.component';
   styleUrl: './fridge.component.scss'
 })
 export class FridgeComponent {
-  private apiServise = inject(ApiServiceService)
-  private foodService = inject(FoodFairbaseService)
+  private apiServise = inject(ApiServiceService);
+  private foodService = inject(FoodFairbaseService);
   protected foodSignal: IFood[] = [];
   public popupSignal = signal<boolean>(false);
   protected recipies$!: Observable<IRecipe[]>;
   public name:string[] = [];
   public products$!: Observable<IFood[]>; // Объявляем Observable
+  buttonShowRecipe: boolean = false;
   productsItem = new ProductsItemComponent();
   @ViewChild('basketFood', { static: false }) basketFood!: ElementRef;
 
   addFoodInBasket(name: string) {
     this.name.push(name);
     console.log(this.name);
+    this.showRecipeActive();
   }
 
 ngOnInit() {
@@ -44,22 +46,33 @@ ngOnInit() {
 
 async showRecipes(){
   const inputFood:string = this.name.join(" ");
-  this.recipies$ = this.apiServise.getRecipes(inputFood)
-  this.recipies$.subscribe(res => {console.log(res)})
+  this.recipies$ = this.apiServise.getRecipes(inputFood);
+  this.recipies$.subscribe(res => {console.log(res)});
 }
 
 removeFood(id:string){
-  this.foodService.deleteFood(id)
+  this.foodService.deleteFood(id);
 }
 
 togglePopup() {
-  this.popupSignal.set(!this.popupSignal())
+  this.popupSignal.set(!this.popupSignal());
 }
 
 removeFoodfromBasket(item: string) {
   this.name = this.name.filter(name => name !== item);
+  this.showRecipeActive();
   console.log(this.name);
 }
 
+showRecipeActive(){
+  if(this.name.length === 0){
+    this.buttonShowRecipe = false;
+    console.log(this.buttonShowRecipe);
+  } else {
+    this.buttonShowRecipe = true;
+    console.log(this.buttonShowRecipe);
+  }
+  
+}
 
 }

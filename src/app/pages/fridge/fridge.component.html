@@ -21,7 +21,8 @@
 <div class="main__stock">
     <addingProducts *ngFor="let item of name" (click)="removeFoodfromBasket(item)" [item]="item"></addingProducts>
 </div>
-<button (click)="showRecipes()" class="pt20 main__show-button button">Показать рецепты из выбранных продуктов</button>
+<button [ngClass]="{'pt20 main__show-button button': true,'disable': !buttonShowRecipe}"
+    (click)="showRecipes()">Показать рецепты из выбранных продуктов</button>
 <div class="pt20 main__recipes">
     @for(recipe of recipies$ | async; track recipe.image){
 

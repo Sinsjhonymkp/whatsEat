@@ -17,7 +17,7 @@ export class AddFoodFormComponent {
   form: FormGroup = new FormGroup({
     name: new FormControl(null, Validators.required),
   })
-
+ 
   onSubmit() {
     if (this.form.valid) {
     const { name, count } = this.form.value

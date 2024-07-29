@@ -44,3 +44,10 @@ body{
     .pb20{
       padding-bottom: 20px;
     }
+    .disable{
+      cursor: default;
+      filter: brightness(40%);
+      &:hover{
+        background: $second-color;
+      }
+    }
