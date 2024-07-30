@@ -20,6 +20,7 @@ import { SvgIconComponent } from '../../common-ui/svg-icon/svg-icon.component';
   styleUrl: './fridge.component.scss'
 })
 export class FridgeComponent {
+  private translate = inject(ApiServiceService)
   private apiServise = inject(ApiServiceService);
   private foodService = inject(FoodFairbaseService);
   protected foodSignal: IFood[] = [];
@@ -31,8 +32,9 @@ export class FridgeComponent {
   productsItem = new ProductsItemComponent();
   @ViewChild('basketFood', { static: false }) basketFood!: ElementRef;
 
-  addFoodInBasket(name: string) {
-    this.name.push(name);
+  async addFoodInBasket(name: string) {
+    const translatedName = this.translate.translatedText(name);
+    this.name.push(await translatedName);
     console.log(this.name);
     this.showRecipeActive();
   }
@@ -46,6 +48,7 @@ ngOnInit() {
 
 async showRecipes(){
   const inputFood:string = this.name.join(" ");
+
   this.recipies$ = this.apiServise.getRecipes(inputFood);
   this.recipies$.subscribe(res => {console.log(res)});
 }

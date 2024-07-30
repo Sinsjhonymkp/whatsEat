@@ -12,7 +12,5 @@ import { environment } from '../../environments/environment';
 export class FreezerComponent {
   
 constructor ( ){
- const app = initializeApp(environment)
-  console.log(app)
 }
 }

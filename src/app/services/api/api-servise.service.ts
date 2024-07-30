@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import  translate from 'translate'
 import { ApiResponse, IRecipe } from '../../interfaces/recipeInterface';
 @Injectable({
   providedIn: 'root'
@@ -16,4 +17,21 @@ export class ApiServiceService {
       map(response => response.hits.map(hit => hit.recipe))
     );
   }
+
+async translatedText(text: string){
+  if (text) {
+    try {
+      const res = await translate(text, { from: 'ru', to: 'en' });
+      
+      console.log(res); // Должно вывести: "Привет, мир"
+      return res;
+    } catch (err) {
+      console.error(err);
+      return text;
+    }
+  } else {
+    console.log('No text provided for translation.');
+    return 'No text provided for translation.'
+  }
+}
 }

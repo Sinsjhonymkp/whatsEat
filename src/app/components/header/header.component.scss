@@ -36,3 +36,12 @@ height: 190px;
     flex-direction: row;
     align-items: center;
 }
+@media(max-width: 450px){
+    .header-instruction {
+        padding: 5px;
+    }
+    .header__logo{
+        display: none;
+    }
+ 
+}
